@@ -8,13 +8,11 @@ services:
     build: ./docker/php-fpm
     volumes:
       - ./:/var/www
-      - ../alice:/var/www/alice
       - ../darknet:/var/www/darknet
       - ../darknet/libm.so.6:/lib/x86_64-linux-gnu/libm.so.6
       - /var/www/.git
       - /var/www/.idea
-    ports:
-      - 3000:3000
+
     environment:
       CONTAINER_ROLE: app
 
