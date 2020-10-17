@@ -24,7 +24,7 @@ app.post('/', function (req, res) {
     res.json({
       session: req.body.session,
       response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
       },
     });
@@ -35,7 +35,7 @@ app.post('/', function (req, res) {
     res.json({
       version: req.body.version,
       response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
       },
     });
@@ -47,7 +47,7 @@ app.post('/', function (req, res) {
       version: req.body.version,
       session: req.body.session,
       response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
       },
     });
@@ -59,7 +59,7 @@ app.post('/', function (req, res) {
       version: req.body.version,
       session: req.body.session,
         response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
         },
     })
@@ -70,4 +70,7 @@ app.use('*', function (req, res) {
   res.sendStatus(404);
 });
 
-app.listen(port);
+https.createServer({
+  key: fs.readFileSync('../webapp/docker/nginx/prod/ssl/privkey.pem'),
+  cert: fs.readFileSync('../webapp/docker/nginx/prod/ssl/fullchain.pem')
+}, app).listen(port);
