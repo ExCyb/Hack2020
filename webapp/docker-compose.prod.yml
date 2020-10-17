@@ -8,17 +8,18 @@ services:
     build: ./docker/php-fpm
     volumes:
       - ./:/var/www
-      - ../darknet:/var/darknet
+      - ../darknet:/var/www/darknet
       - ../darknet/libm.so.6:/lib/x86_64-linux-gnu/libm.so.6
       - /var/www/.git
       - /var/www/.idea
+
     environment:
       CONTAINER_ROLE: app
 
   nginx:
     build:
       context: ./docker/nginx
-      dockerfile: local/Dockerfile
+      dockerfile: prod/Dockerfile
     container_name: nginx
     depends_on:
       - php-fpm

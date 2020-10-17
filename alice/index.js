@@ -1,5 +1,6 @@
 const express = require('express');
-
+const https = require('https');
+const fs = require('fs');
 const port = process.env.PORT || 3000;
 const app = express();
 
@@ -24,7 +25,7 @@ app.post('/', function (req, res) {
     res.json({
       session: req.body.session,
       response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
       },
     });
@@ -35,7 +36,7 @@ app.post('/', function (req, res) {
     res.json({
       version: req.body.version,
       response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
       },
     });
@@ -47,27 +48,30 @@ app.post('/', function (req, res) {
       version: req.body.version,
       session: req.body.session,
       response: {
-        text: 'Сейчас свободны 3 парковочных места',
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
       },
     });
   }
 
-  else 
+  else
   {
     res.json({
       version: req.body.version,
       session: req.body.session,
-        response: {
-        text: 'Сейчас свободны 3 парковочных места',
+      response: {
+        text: 'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 3 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ',
         end_session: true,
-        },
+      },
     })
-  ;}
+    ;}
 });
 
 app.use('*', function (req, res) {
   res.sendStatus(404);
 });
 
-app.listen(port);
+https.createServer({
+  key: fs.readFileSync('../docker/nginx/prod/ssl/privkey.pem'),
+  cert: fs.readFileSync('../docker/nginx/prod/ssl/fullchain.pem')
+}, app).listen(port);

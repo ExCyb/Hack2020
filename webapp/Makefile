@@ -15,7 +15,6 @@ docker-build: docker-compose-build odds-stop abios-stop echo-stop
 bash:
 	make exec cmd="bash"
 
-
 composer-update:
 	make exec cmd="composer update"
 
@@ -25,7 +24,7 @@ composer-install:
 npm-install:
 	make exec cmd="npm install"
 
-npm-prod: purge-html
+npm-prod:
 	make exec cmd="npm run prod"
 
 npm-watch:

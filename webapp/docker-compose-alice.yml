@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  echo:
+    image: php-fpm
+    restart: unless-stopped
+    container_name: echo
+    command: node alice/index.js
+    expose:
+      - 3000
+    depends_on:
+      - php-fpm
+      - redis
+    volumes:
+      - ./:/var/www
+      - ../alice:/var/www/alice
+    environment:
+      CONTAINER_ROLE: echo
+    ports:
+      - 3000:3000
