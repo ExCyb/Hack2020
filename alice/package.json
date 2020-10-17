@@ -1,0 +1,17 @@
+{
+    "name": "parking-skill",
+    "description": "Parking near home skill",
+    "version": "0.0.1",
+    "private": true,
+    "license": "MIT",
+    "author": "Kiborgs",
+    "engines": {
+        "node": ">=6.9.1"
+    },
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^4.16.3"
+    }
+}
