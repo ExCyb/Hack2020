@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  echo:
+  alice:
     image: php-fpm
     restart: unless-stopped
     container_name: echo
@@ -11,7 +11,6 @@ services:
       - 3000
     depends_on:
       - php-fpm
-      - redis
     volumes:
       - ./:/var/www
       - ../alice:/var/www/alice
