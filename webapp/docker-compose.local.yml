@@ -8,8 +8,8 @@ services:
     build: ./docker/php-fpm
     volumes:
       - ./:/var/www
-      - ../alice:/var/alice
-      - ../darknet:/var/darknet
+      - ../alice:/var/www/alice
+      - ../darknet:/var/www/darknet
       - ../darknet/libm.so.6:/lib/x86_64-linux-gnu/libm.so.6
       - /var/www/.git
       - /var/www/.id

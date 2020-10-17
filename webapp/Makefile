@@ -24,7 +24,7 @@ composer-install:
 npm-install:
 	make exec cmd="npm install"
 
-npm-prod: purge-html
+npm-prod:
 	make exec cmd="npm run prod"
 
 npm-watch:
