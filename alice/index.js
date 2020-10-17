@@ -25,7 +25,7 @@ app.post('/', function (req, res) {
     res.json({
       session: req.body.session,
       response: {
-        text: '������ �������� 3 ����������� �����',
+        text: 'Сейчас свободны 3 парковочных места',
         end_session: true,
       },
     });
@@ -36,7 +36,7 @@ app.post('/', function (req, res) {
     res.json({
       version: req.body.version,
       response: {
-        text: '������ �������� 3 ����������� �����',
+        text: 'Сейчас свободны 3 парковочных места',
         end_session: true,
       },
     });
@@ -48,7 +48,7 @@ app.post('/', function (req, res) {
       version: req.body.version,
       session: req.body.session,
       response: {
-        text: '������ �������� 3 ����������� �����',
+        text: 'Сейчас свободны 3 парковочных места',
         end_session: true,
       },
     });
@@ -60,7 +60,7 @@ app.post('/', function (req, res) {
       version: req.body.version,
       session: req.body.session,
       response: {
-        text: '������ �������� 3 ����������� �����',
+        text: 'Сейчас свободны 3 парковочных места',
         end_session: true,
       },
     })
