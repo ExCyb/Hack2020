@@ -1,0 +1,40 @@
+FROM python:3.7
+
+USER root
+RUN apt-get update && \
+	apt-get install -y unzip
+	
+RUN mkdir -p /usr/ml/
+COPY Mask_RCNN.zip /usr/ml/
+RUN unzip /usr/ml/Mask_RCNN.zip -d /usr/ml/
+
+RUN pip install -r /usr/ml/Mask_RCNN/requirements.txt 
+RUN cd /usr/ml/Mask_RCNN && python3 /usr/ml/Mask_RCNN/setup.py install
+
+#
+# Caffe
+#
+# Dependencies
+RUN apt-get install -y --no-install-recommends \
+    cmake libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev \
+    libhdf5-serial-dev protobuf-compiler liblmdb-dev libgoogle-glog-dev \
+    libboost-all-dev && \
+    pip3 install lmdb
+# Get source. Use master branch because the latest stable release (rc3) misses critical fixes.
+RUN git clone -b master --depth 1 https://github.com/BVLC/caffe.git /usr/local/src/caffe
+# Python dependencies
+# Enivronment variables
+ENV PYTHONPATH=/usr/local/src/caffe/python:$PYTHONPATH \
+	PATH=/usr/local/src/caffe/build/tools:$PATH
+# Fix: old version of python-dateutil breaks caffe. Update it.
+RUN pip3 install --no-cache-dir python-dateutil --upgrade
+
+
+RUN pip3 install --no-cache-dir --upgrade jsonpickle flask
+
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+ENV PYTHONUNBUFFERED 1
+COPY rcnnService.py .
+COPY server.py .
+COPY mask_rcnn_coco.h5 .
