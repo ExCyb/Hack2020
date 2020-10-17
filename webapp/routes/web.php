@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+//dd(shell_exec('cd /var/darknet && ./darknet detector test cfg/coco.data cfg/yolov3.cfg data/yolov3.weights data/3.jpg'));
     return view('welcome');
 });

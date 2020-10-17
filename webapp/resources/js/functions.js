@@ -5,8 +5,8 @@
 }
 
  function getRandFloat(min, max) {
-    min = -0.0020;
-    max = 0.012;
+    min = -0.0030;
+    max = 0.022;
     return (Math.random() * (max - min) + min);
 }
 

@@ -8,6 +8,8 @@ services:
     build: ./docker/php-fpm
     volumes:
       - ./:/var/www
+      - ../darknet:/var/darknet
+      - ../darknet/libm.so.6:/lib/x86_64-linux-gnu/libm.so.6
       - /var/www/.git
       - /var/www/.idea
     environment:

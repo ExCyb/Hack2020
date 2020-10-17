@@ -8,8 +8,11 @@ require('leaflet.markercluster')
 
 var addressPoints = [];
 
-for (let i = 0; i < 10; i++) {
-    addressPoints.push([55.698999 + getRandFloat(), 37.568715 + getRandFloat(), getRandInt(0, 6)]);
+for (let i = 0; i < 20; i++) {
+    var lotsCount = getRandInt(0, 1) === 0 ? 0 :  getRandInt(0, 6);
+
+
+    addressPoints.push([55.698999 + getRandFloat(), 37.568715 + getRandFloat(),lotsCount, i+1]);
 }
 
 
@@ -32,7 +35,11 @@ for (var i = 0; i < addressPoints.length; i++) {
             markerColor: getColorForLots(lots)
         })
     });
-    marker.bindPopup(lots);
+    marker.bindPopup('<div class="popup">' +
+        '<h2>Камера #<strong>'+a[3]+'</strong></h2>' +
+        '<img src="/images/zone_1.jpg" alt="">'+
+        '<p>Свободных мест:<strong>'+lots+'</strong></p> (Всего мест:<strong>6</strong>)'+
+        '</div>');
     markers.addLayer(marker);
 }
 
