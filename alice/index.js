@@ -72,6 +72,6 @@ app.use('*', function (req, res) {
 });
 
 https.createServer({
-  key: fs.readFileSync('../docker/nginx/prod/ssl/privkey.pem'),
-  cert: fs.readFileSync('../docker/nginx/prod/ssl/fullchain.pem')
+  key: fs.readFileSync('docker/nginx/prod/ssl/privkey.pem'),
+  cert: fs.readFileSync('docker/nginx/prod/ssl/fullchain.pem')
 }, app).listen(port);

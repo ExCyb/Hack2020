@@ -10,7 +10,7 @@ docker-down:
 docker-compose-build:
 	docker-compose up --build -d
 
-docker-build: docker-compose-build odds-stop abios-stop echo-stop
+docker-build: docker-compose-build
 
 bash:
 	make exec cmd="bash"
