@@ -5,7 +5,7 @@ services:
   alice:
     image: php-fpm
     restart: unless-stopped
-    container_name: echo
+    container_name: alice
     command: node alice/index.js
     expose:
       - 3000
