@@ -56,7 +56,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install pdo_mysql zip exif gd simplexml intl dom curl bcmath opcache pcntl
 RUN pecl install redis && docker-php-ext-enable redis
 
-COPY start.sh /usr/local/bin/start
 RUN chmod u+x /usr/local/bin/start
 
 COPY "php.ini" "/usr/local/etc/php/php.ini"
