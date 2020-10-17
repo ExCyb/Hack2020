@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+
+  php-fpm:
+    image: php-fpm
+    container_name: laravel
+    build: ./docker/php-fpm
+    volumes:
+      - ./:/var/www
+      - ../darknet:/var/darknet
+      - ../darknet/libm.so.6:/lib/x86_64-linux-gnu/libm.so.6
+      - /var/www/.git
+      - /var/www/.idea
+    environment:
+      CONTAINER_ROLE: app
+
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: local/Dockerfile
+    container_name: nginx
+    depends_on:
+      - php-fpm
+    ports:
+      - 443:443
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/ssl:/etc/nginx/ssl
