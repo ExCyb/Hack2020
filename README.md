@@ -1,5 +1,5 @@
-![Цифровой прорыв](https://leadersofdigital.ru/adb6f1da03e109f49d899a5d6305c7d2.svg)
 ![Россия](https://leadersofdigital.ru/89e34a592e531d209b4a83f1fb649425.svg)
+![Цифровой прорыв](https://leadersofdigital.ru/adb6f1da03e109f49d899a5d6305c7d2.svg)
 # Команда Киборги - Кейс Росстелекома 
 _Благоустройство городов \\ Digital Мобильная система парковок_
 ## Live App
